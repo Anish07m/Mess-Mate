@@ -1,0 +1,274 @@
+/* Global Settings */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #343a40;
+    border-bottom: 3px solid #dc3545; /* Bold red bottom border */
+}
+
+.navbar .navbar-brand {
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-link {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    color: #dc3545 !important; /* Red on hover */
+    text-decoration: underline;
+}
+
+.navbar .navbar-toggler {
+    border-color: #dc3545;
+}
+
+/* Admin Dashboard Header */
+h1 {
+    color: #343a40;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Main Content */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Menu, Feedback, and Complaint Section */
+h2 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #343a40;
+    font-weight: 700;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Add New Menu Item Form */
+form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #c82333;
+}
+
+/* Table of Feedbacks and Complaints */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #343a40;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+/* Buttons (for Edit, Delete, etc.) */
+button[type="submit"],
+button[type="button"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"].danger,
+button[type="button"].danger {
+    background-color: #dc3545;
+}
+
+button[type="submit"].danger:hover,
+button[type="button"].danger:hover {
+    background-color: #c82333;
+}
+
+/* Alerts and Messages */
+.alert {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.alert-dismissible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Responsive Design for Admin */
+@media (max-width: 768px) {
+    .navbar .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar .nav-link {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    table th,
+    table td {
+        font-size: 0.9rem;
+    }
+}
+/* Admin Complaints Page */
+.admin-header {
+    font-size: 2rem;
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.complaint-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.complaint-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.complaint-item:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.complaint-username {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.complaint-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.complaint-issue {
+    margin-top: 10px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design for Complaints Page */
+@media (max-width: 768px) {
+    .admin-header {
+        font-size: 1.6rem;
+    }
+
+    .complaint-item {
+        padding: 12px;
+    }
+
+    .complaint-issue {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1>Welcome to MessMate 🍽️</h1>
+  <p>Check menus, submit feedback, and raise complaints about your Hostel Foods and Rooms.</p>
+
+  {% if current_user.is_authenticated %}
+    <h2>Welcome, {{ current_user.username }}!</h2>
+
+    {% if current_user.role == 'admin' %}
+      <!-- Admin-only links -->
+      <p><a href="{{ url_for('main.admin_dashboard') }}">Go to Admin Dashboard</a></p>
+      <p><a href="{{ url_for('main.admin_complaints') }}">View All Complaints</a></p>
+    {% else %}
+      <!-- Regular user links -->
+      <ul>
+        <li><a href="{{ url_for('main.feedback') }}">Submit Feedback</a></li>
+        <li><a href="{{ url_for('main.complaints') }}">Raise Complaint</a></li>
+        <li><a href="{{ url_for('main.menu') }}">View Menu</a></li>
+      </ul>
+    {% endif %}
+
+    <p><a href="{{ url_for('auth.logout') }}">Logout</a></p>
+  {% else %}
+    <!-- Guest links -->
+    <ul>
+      <li><a href="{{ url_for('main.feedback') }}">Submit Feedback</a></li>
+      <li><a href="{{ url_for('main.complaints') }}">Raise Complaint</a></li>
+      <li><a href="{{ url_for('main.menu') }}">View Menu</a></li>
+    </ul>
+
+    <p>Don't have an account? <a href="{{ url_for('auth.register') }}">Register here</a></p>
+    <p><a href="{{ url_for('auth.login') }}">Login</a></p>
+  {% endif %}
+{% endblock %}

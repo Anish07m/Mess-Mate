@@ -1,0 +1,21 @@
+{% extends 'admin_layout.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="admin-header">All Complaints</h1>
+    
+    {% if complaints %}
+      <ul class="complaint-list">
+        {% for c in complaints %}
+          <li class="complaint-item">
+            <strong class="complaint-username">{{ c.user.username }} (Room {{ c.room }})</strong> — 
+            <span class="complaint-date">{{ c.date_created.strftime('%Y-%m-%d %H:%M') }}</span><br>
+            <p class="complaint-issue">{{ c.issue }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No complaints submitted yet.</p>
+    {% endif %}
+  </div>
+{% endblock %}

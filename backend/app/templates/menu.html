@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1 class="neon-text">MessMate - Weekly Menu</h1>
+
+  <ul class="menu-list">
+    {% for menu in menus %}
+      <li><strong>{{ menu.day }}:</strong> {{ menu.items }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{{ url_for('main.index') }}" class="neon-link">Back to Home</a>
+{% endblock %}

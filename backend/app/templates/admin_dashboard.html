@@ -1,0 +1,78 @@
+{% extends 'admin_layout.html' %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4 text-danger">Admin Dashboard</h1>
+
+    <!-- Menu Items Section -->
+    <div class="mb-5">
+        <h2 class="text-primary">Menu Items</h2>
+        {% if menu_items %}
+            <ul class="list-group">
+                {% for item in menu_items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><strong>{{ item.day }}:</strong> {{ item.items }}</span>
+                        <span>
+                            
+                            <form action="{{ url_for('main.delete_menu', menu_id=item.id) }}" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">No menu items found.</p>
+        {% endif %}
+    </div>
+
+    <!-- Add New Menu Item Form -->
+    <div class="mb-5">
+        <h3 class="text-success">Add New Menu Item</h3>
+        <form action="{{ url_for('main.add_menu') }}" method="POST" class="bg-light p-4 rounded shadow-sm">
+            <div class="mb-3">
+                <label for="day" class="form-label">Day</label>
+                <input type="text" id="day" name="day" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="items" class="form-label">Menu Items</label>
+                <textarea id="items" name="items" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Add Menu Item</button>
+        </form>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="mb-5">
+        <h2 class="text-info">Feedback Received</h2>
+        {% if feedbacks %}
+            <ul class="list-group">
+                {% for feedback in feedbacks %}
+                    <li class="list-group-item">
+                        <strong>{{ feedback.name }}:</strong> {{ feedback.message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">No feedback received yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Complaints Section -->
+    <div>
+        <h2 class="text-warning">Complaints Received</h2>
+        {% if complaints %}
+            <ul class="list-group">
+                {% for complaint in complaints %}
+                    <li class="list-group-item">
+                        <strong>Room {{ complaint.room }}:</strong> {{ complaint.issue }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">No complaints received yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
